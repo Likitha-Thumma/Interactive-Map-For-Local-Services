@@ -5,13 +5,12 @@ Team Members:
 
 |     Name          |   Roll Numbers  |
 |-------------------|-----------------|
-|                   |                 |
-|                   |                 |
-|                   |                 |
-|                   |                 |
-|                   |                 |
-|                   |                 |
-|                   |                 |
+|Likitha Thumma     |2410030229       |
+|Malreddy Manogna   |2410030430       |
+|Kodali Sreeja      |2410030076       |
+|H. Esha Manogna    |2410030232       |
+|Bijju Adithi Yadav |2410030228       |
+
 
 Features
 
