@@ -28,6 +28,7 @@ Features
 
 🌐 Lightweight & Offline Mode (optional) – Designed to work in areas with limited internet.
 
+
 🚀 Use Cases
 
 👩‍🎓 Students – Find hostels, libraries, study cafés, affordable food outlets.
@@ -37,6 +38,7 @@ Features
 🏡 Rural Users – Discover nearby clinics, government offices, agricultural services.
 
 🛠 General Public – Quickly locate verified local shops, ATMs, emergency services.
+
 
 🛠 Tech Stack
 
@@ -48,7 +50,8 @@ Maps Integration: OpenStreetMap / Leaflet.js (lightweight alternative to Google 
 
 Voice Search: Web Speech API / Google Speech-to-Text
 
-Authentication: Firebase Auth / OAuth (optional)
+Authentication: Firebase Auth / OAuth
+
 
 📖Usage
 
