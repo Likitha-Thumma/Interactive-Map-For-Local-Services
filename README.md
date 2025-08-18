@@ -30,10 +30,6 @@ Node.js (v16 or higher)
 npm or yarn
 Modern web browser with geolocation support
 
-Installation
-bash# Clone the repository
-git clone https://github.com/yourusername/interactive-map-local-services.git
-
 📱 Usage
 For End Users
 
