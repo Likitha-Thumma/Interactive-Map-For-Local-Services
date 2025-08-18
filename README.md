@@ -18,6 +18,7 @@ Features
 🌐 Lightweight & Offline Mode (optional) – Designed to work in areas with limited internet.
 
 🚀 Use Cases
+
 👩‍🎓 Students – Find hostels, libraries, study cafés, affordable food outlets.
 
 👩 Women – Access safe transport, health centers, women-friendly spaces.
@@ -27,6 +28,7 @@ Features
 🛠 General Public – Quickly locate verified local shops, ATMs, emergency services.
 
 🛠 Tech Stack
+
 Frontend: React / Vue / Flutter (lightweight UI for web & mobile)
 
 Database: Firebase / MongoDB (real-time data & availability)
@@ -38,6 +40,7 @@ Voice Search: Web Speech API / Google Speech-to-Text
 Authentication: Firebase Auth / OAuth (optional)
 
 📖Usage
+
 Open the app and allow location access.
 
 Use map navigation or voice search to find services.
@@ -45,5 +48,6 @@ Use map navigation or voice search to find services.
 Check real-time availability before visiting.
 
 Add feedback or community tags for services you used.
+
 Save frequently visited services to Favorites.
  
