@@ -11,7 +11,7 @@ Team Members:
 |H. Esha Manogna    |2410030232       |
 |Bijju Adithi Yadav |2410030228       |
 
-
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Features
 
 🗺 Interactive Map – Explore local services (shops, clinics, libraries, hostels, etc.) with an intuitive map interface.
@@ -52,6 +52,7 @@ Voice Search: Web Speech API / Google Speech-to-Text
 
 Authentication: Firebase Auth / OAuth
 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 📖Usage
 
