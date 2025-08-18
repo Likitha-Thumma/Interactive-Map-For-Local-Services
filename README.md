@@ -28,7 +28,7 @@ Features
 
 🌐 Lightweight & Offline Mode (optional) – Designed to work in areas with limited internet.
 
-
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 🚀 Use Cases
 
 👩‍🎓 Students – Find hostels, libraries, study cafés, affordable food outlets.
@@ -39,7 +39,7 @@ Features
 
 🛠 General Public – Quickly locate verified local shops, ATMs, emergency services.
 
-
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 🛠 Tech Stack
 
 Frontend: React / Vue / Flutter (lightweight UI for web & mobile)
