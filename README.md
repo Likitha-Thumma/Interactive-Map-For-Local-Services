@@ -1,7 +1,7 @@
 # Interactive-Map-For-Local-Services
-A lightweight interactive map for verified local services with real-time availability, voice search, and community-based tag feedback , designed for focused groups like students, women, or rural users.
+A lightweight interactive map for verified local services with **real-time availability**, **voice search**, and **community-based tag feedback** , designed for focused groups like **students**, **women**, **rural users** and **handicapped individuals**.
 
-**Team Members:**
+## 👩‍💻 Team Members  
 
 |     Name          |   Roll Numbers  |
 |-------------------|-----------------|
@@ -12,47 +12,50 @@ A lightweight interactive map for verified local services with real-time availab
 |Bijju Adithi Yadav |2410030228       |
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Features
+## 🚀 Features
 
-🗺 Interactive Map – Explore local services (shops, clinics, libraries, hostels, etc.) with an intuitive map interface.
+🗺 **Interactive Map** – Explore local services (shops, clinics, libraries, hostels, etc.) with an intuitive map interface.
 
-✅ Verified Services – Only trusted and verified service providers are listed.
+✅ **Verified Services** – Only trusted and verified service providers are listed.
 
-⏳ Real-time Availability – Service providers can update their availability status live.
+⏳ **Real-time Availability** – Service providers can update their availability status live.
 
-🎙 Voice Search – Hands-free search for services in local languages.
+🎙 **Voice Search** – Hands-free search for services in local languages.
 
-👥 Community Feedback & Tags – Users can leave feedback and tag services (e.g., “safe for women”, “student-friendly”, “24/7”).
+👥 **Community Feedback & Tags** – Users can leave feedback and tag services (e.g., “safe for women”, “student-friendly”, “24/7”).
 
-📌 Category Filters – Quickly filter services by type (healthcare, education, food, etc.).
+📌 **Category Filters** – Quickly filter services by type (healthcare, education, food, etc.).
 
-🌐 Lightweight & Offline Mode (optional) – Designed to work in areas with limited internet.
-
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-🚀 Use Cases
-
-👩‍🎓 Students – Find hostels, libraries, study cafés, affordable food outlets.
-
-👩 Women – Access safe transport, health centers, women-friendly spaces.
-
-🏡 Rural Users – Discover nearby clinics, government offices, agricultural services.
-
-🛠 General Public – Quickly locate verified local shops, ATMs, emergency services.
+🌐 **Lightweight & Offline Mode** – Designed to work in areas with limited internet.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-🛠 Tech Stack
+ ## 💡 Use Cases
 
-Frontend: React / Vue / Flutter (lightweight UI for web & mobile)
+👩‍🎓 **Students** – Find hostels, libraries, study cafés, affordable food outlets.
 
-Maps Integration: OpenStreetMap / Leaflet.js (lightweight alternative to Google Maps)
+👩 **Women** – Access safe transport, health centers, women-friendly spaces.
 
-Voice Search: Web Speech API / Google Speech-to-Text
+🏡 **Rural Users** – Discover nearby clinics, government offices, agricultural services.
 
-Authentication: Firebase Auth / OAuth
+♿ **Handicapped Individuals** – Locate wheelchair-accessible services, ramps, and disability-friendly facilities.
+
+🛠 **General Public** – Quickly locate verified local shops, ATMs, emergency services.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## 🛠 Tech Stack
+
+**Frontend**: HTML, CSS, JavaScript
+
+**Maps Integration**: Google Maps API / Leaflet.js
+
+**Voice Search**: Web Speech API / Google Speech-to-Text
+
+**UI Design:** Uizard 
+
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-📖Usage
+## 📖 Usage
 
 Open the app and allow location access.
 
