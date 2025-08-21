@@ -57,7 +57,7 @@ A lightweight interactive map for verified local services with **real-time avail
 
 ## 📖 Usage
 
-Open the app and allow location access.
+Open the website and allow location access.
 
 Use map navigation or voice search to find services.
 
