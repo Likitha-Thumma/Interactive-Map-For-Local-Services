@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Map for Local Services</title>
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+        crossorigin=""/>
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Leaflet Geocoder CSS (for Search Bar) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+
+  <!-- Your Custom CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-content">
+      <h2 class="sidebar-title">Filters</h2>
+      <div class="filter-section">
+        <h3 class="filter-title">Service Categories</h3>
+        <div class="filter-options">
+          <label class="filter-option">
+            <input type="checkbox" id="filter-all" checked>
+            <span class="filter-text">All Services</span>
+            <span class="filter-count" id="count-all">0</span>
+          </label>
+          <label class="filter-option">
+            <input type="checkbox" id="filter-restaurants" checked>
+            <span class="filter-text"><i class="fas fa-utensils"></i> Restaurants</span>
+            <span class="filter-count" id="count-restaurants">0</span>
+          </label>
+          <label class="filter-option">
+            <input type="checkbox" id="filter-hospitals" checked>
+            <span class="filter-text"><i class="fas fa-hospital"></i> Hospitals</span>
+            <span class="filter-count" id="count-hospitals">0</span>
+          </label>
+          <label class="filter-option">
+            <input type="checkbox" id="filter-shops" checked>
+            <span class="filter-text"><i class="fas fa-shopping-cart"></i> Shops</span>
+            <span class="filter-count" id="count-shops">0</span>
+          </label>
+          <label class="filter-option">
+            <input type="checkbox" id="filter-services" checked>
+            <span class="filter-text"><i class="fas fa-wrench"></i> Services</span>
+            <span class="filter-count" id="count-services">0</span>
+          </label>
+        </div>
+      </div>
+      <div class="filter-section">
+        <button class="clear-filters-btn" id="clearFilters"><i class="fas fa-times"></i> Clear Filters</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Map -->
+  <div id="map" class="map"></div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+          crossorigin=""></script>
+
+  <!-- Leaflet Geocoder JS (for Search Bar) -->
+  <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+
+  <!-- Custom JS -->
+  <script>
+    const map = L.map('map').setView([20.5937, 78.9629], 5); // Default India view
+
+    // Load Map Layer
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Add Search Bar
+    L.Control.geocoder({
+      defaultMarkGeocode: false
+    })
+    .on('markgeocode', function(e) {
+      const latlng = e.geocode.center;
+      map.setView(latlng, 15);
+      L.marker(latlng).addTo(map)
+        .bindPopup(e.geocode.name)
+        .openPopup();
+    })
+    .addTo(map);
+
+    // Get User Location
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const lat = position.coords.latitude;
+          const lng = position.coords.longitude;
+          const accuracy = position.coords.accuracy;
+
+          map.setView([lat, lng], 15);
+          L.marker([lat, lng]).addTo(map)
+            .bindPopup("You are here (accuracy: " + Math.round(accuracy) + " meters)").openPopup();
+        },
+        (error) => {
+          console.error("Error getting location:", error);
+          alert("Unable to get your exact location. Showing default India map.");
+        },
+        {
+          enableHighAccuracy: true,
+          timeout: 10000,
+          maximumAge: 0
+        }
+      );
+    } else {
+      alert("Geolocation is not supported by your browser.");
+    }
+  </script>
+</body>
+</html>
