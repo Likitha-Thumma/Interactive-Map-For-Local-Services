@@ -25,7 +25,7 @@
       <input type="email" id="editEmail" style="display:none;">
     </div>
 
-    <!-- Roles Field -->
+    <!---- Roles Field -->
     <div class="profile-field">
       <label>User Type:</label>
       <span id="displayUserType"></span>
@@ -48,18 +48,14 @@
 </div>
 
 <script>
-  // Logout functionality
   document.getElementById("logoutBtn").addEventListener("click", function () {
-    // Clear user data from localStorage
     localStorage.clear();
 
-    // Redirect to login page
     window.location.href = "login.html";
   });
 </script>
 
   <script>
-    // Elements
     const displayName = document.getElementById('displayName');
     const displayEmail = document.getElementById('displayEmail');
     const displayUserType = document.getElementById('displayUserType');
@@ -70,7 +66,6 @@
     const saveBtn = document.getElementById('saveBtn');
     const cancelBtn = document.getElementById('cancelBtn');
 
-    // Load user from localStorage or blank
     function loadUser() {
       const storedUser = JSON.parse(localStorage.getItem("userProfile"));
       if (!storedUser) {
@@ -96,7 +91,6 @@
 
     renderUser();
 
-    // Toggle between view and edit
     function toggleView(isEditing){
       if(isEditing){
         displayName.style.display = 'none';
@@ -125,10 +119,8 @@
       }
     }
 
-    // Edit button
     editBtn.addEventListener('click', () => toggleView(true));
 
-    // Save button
     saveBtn.addEventListener('click', () => {
       const selectedRoles = Array.from(editUserType.selectedOptions).map(o => o.value);
       if(selectedRoles.includes('student') && selectedRoles.includes('employee')){
@@ -145,7 +137,6 @@
       toggleView(false);
     });
 
-    // Cancel button
     cancelBtn.addEventListener('click', () => {
       renderUser();
       toggleView(false);
