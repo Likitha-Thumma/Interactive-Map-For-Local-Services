@@ -20,7 +20,7 @@
     </div>
     
     <div class="user-type-section">
-        <h3>Select Your Profile (optional)</h3>
+        <h3>Select Your Profile </h3>
         <p>This helps us show you relevant services</p>
         <div class="user-type-grid">
             
@@ -64,21 +64,32 @@
     <button type="submit" class="btn-primary">Create Account</button>
 </form>
 <p>Already have an account? <a href="login.html"> Login here</a> </p>
-   <script>
-document.getElementById("signupForm").addEventListener("submit", function (event) {
-    event.preventDefault();
+  <script>
+const signupForm = document.getElementById('signupForm');
 
-    // Optionally collect data here
-    const name = document.getElementById("signupName").value;
-    const email = document.getElementById("signupEmail").value;
-    const password = document.getElementById("signupPassword").value;
+signupForm.addEventListener('submit', (e) => {
+  e.preventDefault();
 
-    console.log("New user registered:", name, email); 
+  const name = document.getElementById('signupName').value;
+  const email = document.getElementById('signupEmail').value;
 
-    // Redirect to map
-    window.location.href = "map.html";
+  const roles = [];
+
+  document.querySelectorAll('input[name="userTypeExtra"]:checked').forEach(cb => {
+    roles.push(cb.value);
+  });
+
+ 
+  const occupation = document.querySelector('input[name="occupation"]:checked');
+  if (occupation) roles.push(occupation.value);
+
+  const userProfile = { name, email, roles };
+  localStorage.setItem("userProfile", JSON.stringify(userProfile));
+
+  window.location.href = "map.html";
 });
 </script>
+
 
 
 </body>
