@@ -306,144 +306,67 @@ p a:hover {
 
 
 
-
-/*Map Styling*/
-/* style.css */
-/* Root variables */
-/* ===================== */
-/* Body & Reset */
-/* Reset */
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-    font-family: Arial, sans-serif;
-    overflow: hidden;
-}
-
-/* ===================== */
-/* Sidebar */
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 290px;
-    height: 100%;
-    background: #e9e3e3bd;
-    border-right: 1px solid #ccc;
-    padding: 1rem;
-    overflow-y: auto;
-    z-index: 1000;
-    box-shadow: 2px 0 6px rgba(0,0,0,0.1);
-}
-
-.sidebar-title {
-    font-size: 1.5rem;
-    text-align: center;
-    margin-bottom: 1rem;
-    color: #333;
-}
-
-.filter-section {
-    margin-bottom: 1rem;
-}
-
-.filter-title {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-    color: #444;
-}
-
-.filter-option {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.4rem 0;
-    border-bottom: 1px solid #eeeeee6c;
-    cursor: pointer;
-}
-
-.filter-option input {
-    margin-right: 0.5rem;
-}
-
-.filter-text {
-    flex-grow: 1;
-}
-
-.clear-filters-btn {
-    display: block;
-    width: 100%;
-    padding: 0.5rem;
-    background: #f44336;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-/* ===================== */
-/* Map container */
+/* Map page specific styles */
 #map {
-    position: absolute;
-    top: 0;
-    left: 280px; /* sidebar width */
-    right: 0;
-    bottom: 0;
-    z-index: 0;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
 }
 
-/* ===================== */
-/* Top-right search + profile */
-.top-right-controls {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    display: flex;
-    align-items: center;
-    gap: 10px; /* space between search and profile */
-    z-index: 1001;
-}
-#search-container {
-    display: flex; /* makes sure the search box fits nicely */
-}
-
-
-.profile-button {
-    font-size: 30px;
-    color: #007BFF;
-    cursor: pointer;
-    text-decoration: none;
+/* Top-right search and profile bar */
+.top-bar {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 5px 10px;
+  border-radius: 25px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
-/* Leaflet Search Bar */
-.leaflet-control-geocoder {
-    min-width: 250px;
-    z-index: 1001 !important;
-    background: #fff;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-    border-radius: 6px;
-    padding: 2px;
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-/* ===================== */
-/* Responsive */
-@media (max-width: 768px) {
-    .sidebar {
-        left: -280px;
-        transition: left 0.3s ease;
-    }
-    .sidebar.open {
-        left: 0;
-    }
-    #map {
-        left: 0;
-    }
+.search-container input {
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  padding: 6px 12px;
+  width: 220px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease;
 }
 
+.search-container input:focus {
+  border-color: #007BFF;
+  box-shadow: 0 0 6px #7dafff;
+}
+
+.search-container button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #007BFF;
+  font-size: 18px;
+}
+
+.profile-btn {
+  font-size: 28px;
+  color: #007BFF;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.profile-btn:hover {
+  color: #0056b3;
+}
 
 
 
