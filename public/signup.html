@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Services Map - Login</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="signup-page">
+    <form id="signupForm" class="auth-form">
+    <h2>Create Account</h2>
+    <div class="form-group">
+        <input type="text" id="signupName" placeholder="Full Name" required>
+    </div>
+    <div class="form-group">
+        <input type="email" id="signupEmail" placeholder="Email" required>
+    </div>
+    <div class="form-group">
+        <input type="password" id="signupPassword" placeholder="Password" required>
+    </div>
+    
+    <div class="user-type-section">
+        <h3>Select Your Profile </h3>
+        <p>This helps us show you relevant services</p>
+        <div class="user-type-grid">
+            
+            
+            <label class="user-type-option">
+                <input type="checkbox" name="userTypeExtra" value="woman">
+                <span class="checkmark"></span>
+                <div class="option-content">
+                    <span class="icon">👧🏻</span>
+                    <span class="text">Woman</span>
+                </div>
+            </label>
+            
+            <label class="user-type-option">
+                <input type="radio" name="occupation" value="student">
+                <span class="checkmark"></span>
+                <div class="option-content">
+                    <span class="icon">🧑🏻‍🎓</span>
+                    <span class="text">Student</span>
+                </div>
+            </label>
+            <label class="user-type-option">
+                <input type="radio" name="occupation" value="employee">
+                <span class="checkmark"></span>
+                <div class="option-content">
+                    <span class="icon">🧑🏻‍💼</span>
+                    <span class="text">Employee</span>
+                </div>
+            </label>
+            
+            <label class="user-type-option">
+                <input type="checkbox" name="userTypeExtra" value="handicapped">
+                <span class="checkmark"></span>
+                <div class="option-content">
+                    <span class="icon">🧑🏻‍🦼</span>
+                    <span class="text">Accessibility Needs</span>
+                </div>
+            </label>
+        </div>
+    </div>
+    <button type="submit" class="btn-primary">Create Account</button>
+</form>
+<p>Already have an account? <a href="/login.html"> Login here</a> </p>
+  <script>
+const signupForm = document.getElementById('signupForm');
+
+signupForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const name = document.getElementById('signupName').value;
+  const email = document.getElementById('signupEmail').value;
+  const password = document.getElementById('signupPassword').value;
+
+  const roles = [];
+  document.querySelectorAll('input[name="userTypeExtra"]:checked').forEach(cb => roles.push(cb.value));
+  const occupation = document.querySelector('input[name="occupation"]:checked');
+  if (occupation) roles.push(occupation.value);
+
+  const response = await fetch("/api/signup", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name, email, password, roles })
+  });
+
+  const result = await response.json();
+  if (response.ok) {
+    alert("Signup successful!");
+    window.location.href = "/login.html";
+  } else {
+    alert(result.message || "Signup failed");
+  }
+});
+
+</script>
+
+
+
+</body>

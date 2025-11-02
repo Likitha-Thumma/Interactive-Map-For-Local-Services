@@ -1,0 +1,17 @@
+{
+  "name": "usingbackend_pbl",
+  "version": "1.0.0",
+  "description": "Simple Node.js backend for Render deployment",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^4.21.2",
+    "sqlite3": "^5.1.7"
+  }
+}

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="profile-page">
+
+  <div class="profile-card">
+    <h2>My Profile</h2>
+
+    <!-- Name Field -->
+    <div class="profile-field">
+      <label>Name:</label>
+      <span id="displayName"></span>
+      <input type="text" id="editName" style="display:none;">
+    </div>
+
+    <!-- Email Field -->
+    <div class="profile-field">
+      <label>Email:</label>
+      <span id="displayEmail"></span>
+      <input type="email" id="editEmail" style="display:none;">
+    </div>
+
+    <!---- Roles Field -->
+    <div class="profile-field">
+      <label>User Type:</label>
+      <span id="displayUserType"></span>
+      <select id="editUserType" multiple style="display:none;">
+        <option value="woman">Woman</option>
+        <option value="student">Student</option>
+        <option value="employee">Employee</option>
+        <option value="handicapped">Handicapped</option>
+      </select>
+    </div>
+
+    <!-- Buttons -->
+    <div class="profile-buttons">
+      <button id="editBtn">Edit</button>
+      <button id="saveBtn" style="display:none;">Save</button>
+      <button id="cancelBtn" style="display:none;">Cancel</button>
+    </div>
+  <div class="logout-container">
+  <button id="logoutBtn" class="logout-btn">Logout</button>
+</div>
+
+<script>
+  document.getElementById("logoutBtn").addEventListener("click", function () {
+    localStorage.clear();
+
+    window.location.href = "login.html";
+  });
+</script>
+
+  <script>
+    const displayName = document.getElementById('displayName');
+    const displayEmail = document.getElementById('displayEmail');
+    const displayUserType = document.getElementById('displayUserType');
+    const editName = document.getElementById('editName');
+    const editEmail = document.getElementById('editEmail');
+    const editUserType = document.getElementById('editUserType');
+    const editBtn = document.getElementById('editBtn');
+    const saveBtn = document.getElementById('saveBtn');
+    const cancelBtn = document.getElementById('cancelBtn');
+
+    function loadUser() {
+      const storedUser = JSON.parse(localStorage.getItem("userProfile"));
+      if (!storedUser) {
+        return { name: "", email: "", roles: [] }; // blank profile if no signup yet
+      }
+      return storedUser;
+    }
+
+    let currentUser = loadUser();
+
+    // Render user data
+    function renderUser() {
+      displayName.textContent = currentUser.name || "";
+      displayEmail.textContent = currentUser.email || "";
+      displayUserType.textContent = currentUser.roles.join(', ') || "";
+
+      editName.value = currentUser.name || "";
+      editEmail.value = currentUser.email || "";
+      Array.from(editUserType.options).forEach(opt => {
+        opt.selected = currentUser.roles.includes(opt.value);
+      });
+    }
+
+    renderUser();
+
+    function toggleView(isEditing){
+      if(isEditing){
+        displayName.style.display = 'none';
+        displayEmail.style.display = 'none';
+        displayUserType.style.display = 'none';
+
+        editName.style.display = 'block';
+        editEmail.style.display = 'block';
+        editUserType.style.display = 'block';
+
+        editBtn.style.display = 'none';
+        saveBtn.style.display = 'inline-block';
+        cancelBtn.style.display = 'inline-block';
+      } else {
+        displayName.style.display = 'block';
+        displayEmail.style.display = 'block';
+        displayUserType.style.display = 'block';
+
+        editName.style.display = 'none';
+        editEmail.style.display = 'none';
+        editUserType.style.display = 'none';
+
+        editBtn.style.display = 'inline-block';
+        saveBtn.style.display = 'none';
+        cancelBtn.style.display = 'none';
+      }
+    }
+
+    editBtn.addEventListener('click', () => toggleView(true));
+
+    saveBtn.addEventListener('click', () => {
+      const selectedRoles = Array.from(editUserType.selectedOptions).map(o => o.value);
+      if(selectedRoles.includes('student') && selectedRoles.includes('employee')){
+        alert("You cannot select both Student and Employee together.");
+        return;
+      }
+
+      currentUser.name = editName.value;
+      currentUser.email = editEmail.value;
+      currentUser.roles = selectedRoles;
+
+      localStorage.setItem("userProfile", JSON.stringify(currentUser));
+      renderUser();
+      toggleView(false);
+    });
+
+    cancelBtn.addEventListener('click', () => {
+      renderUser();
+      toggleView(false);
+    });
+  </script>
+
+</body>
+</html>
